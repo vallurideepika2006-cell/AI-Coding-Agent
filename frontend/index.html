@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Coding Agent</title>
+
+    <link rel="stylesheet" href="/frontend/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+    <header class="app-header">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                🤖
+            </div>
+
+            <div>
+                <h1>AI Coding Agent</h1>
+
+                <p>
+                    Analyze • Execute • Explain • Fix
+                </p>
+            </div>
+
+        </div>
+
+        <div class="header-status">
+            <span class="status-dot"></span>
+            System Ready
+        </div>
+
+    </header>
+
+    <div class="feature-bar">
+
+        <span>🔍 Code Analysis</span>
+
+        <span>🔐 Security</span>
+
+        <span>📊 Quality</span>
+
+        <span>🤖 AI Suggestions</span>
+
+        <span>🔧 Code Fixing</span>
+
+    </div>
+
+        <!-- Language Selection -->
+        <div class="language-section">
+
+    <label for="language">
+        Select Language:
+    </label>
+
+    <select id="language">
+        <option value="python">Python</option>
+        <option value="java">Java</option>
+    </select>
+
+</div>
+
+        <!-- Code Input -->
+        <div class="editor-section">
+
+    <div class="editor-header">
+
+        <label for="code">
+            💻 Code Editor
+        </label>
+
+        <span id="editorLanguage">
+            Python
+        </span>
+
+    </div>
+
+    <textarea
+        id="code"
+        placeholder="Write or paste your code here..."
+        spellcheck="false"
+    ></textarea>
+
+</div>
+
+        <!-- Analyze Button -->
+        <button id="analyzeBtn" onclick="analyzeCode()">
+            🔍 Analyze Code
+        </button>
+        <button id="historyBtn" onclick="showHistory()">
+    📜 Code History
+        </button>
+
+        <div id="history" class="history-section"></div>
+
+        <!-- Loading Message -->
+        <div id="loading" class="loading">
+            Analyzing your code...
+        </div>
+
+        <!-- Result -->
+        <div id="result" class="result"></div>
+
+    </div>
+
+    <script src="/frontend/script.js"></script>
+
+</body>
+</html>
