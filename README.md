@@ -1,216 +1,173 @@
 # 🤖 AI Coding Agent
 
-An AI-powered web application for analyzing, executing,
-explaining and improving Python and Java programs.
+An AI-powered web application for analyzing, executing, debugging, explaining, and improving Python and Java programs.
 
-## 🚀 Features
+The system combines static code analysis, runtime execution, error parsing, security analysis, code quality scoring, AI-assisted explanations, optimization suggestions, and automatic Python code fixing in a single dashboard.
 
-- Python static code analysis
-- Java static code analysis
-- Python code execution
-- Java compilation and execution
-- Runtime error detection
-- Java compiler/runtime error parsing
-- AI-powered error explanation
-- AI-generated Python code fixes
-- Security vulnerability detection
-- Code quality scoring
-- Cyclomatic complexity analysis
-- AI optimization suggestions
-- Code analysis history
-- Download analyzed code
-- Download fixed code
-- Professional web dashboard
+---
 
-## 🛠️ Technologies Used
+## 📌 Overview
 
-### Frontend
+Traditional programming environments often provide error messages but require developers to manually identify the cause, understand the problem, and determine how to fix it.
 
-- HTML5
-- CSS3
-- JavaScript
+The **AI Coding Agent** automates several parts of this debugging workflow.
 
-### Backend
+A user can enter Python or Java code, select the programming language, and analyze the program through a web-based dashboard.
 
-- Python
-- FastAPI
-- Pydantic
+The system can:
 
-### Code Analysis
+- Analyze source code
+- Detect potential coding issues
+- Execute Python and Java programs
+- Detect runtime and compilation errors
+- Explain errors in beginner-friendly language
+- Detect common security vulnerabilities
+- Calculate a code quality score
+- Generate optimization suggestions
+- Automatically generate corrected Python code for supported runtime errors
+- Execute the corrected Python code
+- Maintain code analysis history
+- Download analyzed or fixed code
 
-- Python AST
-- Java static analysis using pattern analysis
-- Regular expressions
+---
 
-### AI
+# ✨ Features
 
-- Google Gemini API
+## 1. 🔍 Static Code Analysis
 
-### Execution
+The system analyzes source code before execution.
 
-- Python subprocess
-- Java JDK
-- javac
-- java
+### Python
 
-## 🏗️ Project Architecture
+Python code is analyzed using the Python `ast` module.
 
-User
+The analyzer detects:
 
-↓
-
-Frontend
-
-↓
-
-FastAPI Backend
-
-↓
-
-Static Analyzer
-Security Analyzer
-Quality Analyzer
-Python/Java Executor
-Error Parser
-AI Agent
-Code Fixer
-
-↓
-
-Results Dashboard
-
-## 📁 Project Structure
-
-AI-Agent/
-
-├── frontend/
-
-│   ├── index.html
-
-│   ├── style.css
-
-│   └── script.js
-
-├── analyzer.py
-
-├── java_analyzer.py
-
-├── executor.py
-
-├── error_parser.py
-
-├── java_error_parser.py
-
-├── security_analyzer.py
-
-├── quality_analyzer.py
-
-├── ai_agent.py
-
-├── code_fixer.py
-
-├── main.py
-
-├── test_security.py
-
-└── README.md
-
-## ▶️ How to Run
-
-### 1. Open the project
-
-Open the AI-Agent folder in VS Code.
-
-### 2. Activate virtual environment
-
-Windows PowerShell:
-
-    .\venv\Scripts\Activate.ps1
-
-### 3. Set Gemini API key
-
-    $env:GEMINI_API_KEY="YOUR_API_KEY"
-
-### 4. Start the server
-
-    python -m uvicorn main:app --port 8001
-
-### 5. Open the application
-
-Open:
-
-    http://127.0.0.1:8001/app
-
-## 🧪 Example
-
-Python input:
-
-    numbers = [1, 2, 3, 4, 5]
-
-    result = 0
-
-    for n in numbers:
-        result += n
-
-    print(result)
-
-The system performs:
-
-1. Static analysis
-2. Security analysis
-3. Quality scoring
-4. Program execution
-5. Optimization suggestions
-
-## 🔐 Security Analysis
-
-The application checks for patterns such as:
-
-- Dangerous eval()
-- Dangerous exec()
-- shell=True
-- Hard-coded secrets
-- Potential SQL injection
-- Runtime command execution
-- Weak hashing algorithms
-
-## 📊 Code Quality
-
-The quality analyzer considers:
-
-- Static analysis warnings
+- Functions
+- Classes
+- Loops
+- Conditional statements
+- Variable assignments
+- Return statements
+- Imports
+- Function calls
 - Cyclomatic complexity
-- Security vulnerabilities
+- Basic static warnings
 
-The result is displayed as a score from 0 to 100.
+### Java
 
-## 🤖 AI Capabilities
+Java source code is analyzed using pattern-based analysis.
 
-The AI component can:
+The analyzer detects:
 
-- Explain runtime errors
-- Suggest optimization techniques
-- Generate corrected Python code
+- Classes
+- Methods
+- Loops
+- Conditional statements
+- Assignments
+- Return statements
+- Imports
+- Basic warnings
+- Cyclomatic complexity
 
-A local fallback mechanism is also available when the
-AI API is unavailable.
+---
 
-## 🎯 Future Improvements
+## 2. ▶️ Code Execution
 
-- Support additional programming languages
-- Advanced AST-based Java analysis
-- User authentication
-- Database-backed code history
-- More advanced security analysis
-- Real-time code suggestions
-- Docker-based secure code execution
-- Detailed downloadable reports
-- Cloud deployment
+The system supports local execution of:
 
-## 👩‍💻 Author
+- Python programs
+- Java programs
 
-BTech Information Technology Student
+### Python
 
-## 📌 Project Type
+Python programs are executed using the Python interpreter through `subprocess`.
 
-AI / Software Development / Code Analysis
+### Java
+
+Java programs are:
+
+1. Saved temporarily
+2. Compiled using `javac`
+3. Executed using the Java runtime
+4. Temporary files are removed after execution
+
+Execution timeout controls help prevent programs from running indefinitely.
+
+---
+
+## 3. ❌ Runtime and Compilation Error Detection
+
+The system identifies errors generated during execution or compilation.
+
+### Python error examples
+
+- `ZeroDivisionError`
+- `IndexError`
+- `KeyError`
+- `NameError`
+- `TypeError`
+- `ValueError`
+- `AttributeError`
+- `FileNotFoundError`
+
+### Java error examples
+
+- `ArithmeticException`
+- `NullPointerException`
+- `ArrayIndexOutOfBoundsException`
+- `StringIndexOutOfBoundsException`
+- `NumberFormatException`
+- `ClassCastException`
+- `IllegalArgumentException`
+- `FileNotFoundException`
+- `IOException`
+
+The system extracts information such as:
+
+- Error type
+- Error message
+- Line number
+- Explanation
+- Suggested solution
+
+---
+
+# 🤖 AI-Powered Explanation
+
+The project integrates Google's Gemini API for AI-assisted programming explanations.
+
+The AI can explain:
+
+1. What went wrong
+2. Why the error occurred
+3. Which part of the program caused the problem
+4. How the problem can be fixed
+5. Possible optimization improvements
+
+The system also contains local fallback logic so that basic explanations and optimization suggestions can still be generated when the AI service is unavailable.
+
+> **Note:** AI functionality depends on API availability and account quota.
+
+---
+
+# 🔧 Automatic Code Fixing
+
+For supported Python runtime errors, the system can generate corrected code.
+
+The workflow is:
+
+```text
+Python Code
+     ↓
+Execution
+     ↓
+Runtime Error
+     ↓
+Error Parser
+     ↓
+Code Fixer
+     ↓
+Corrected Python Code
+     ↓
+Re-execution
